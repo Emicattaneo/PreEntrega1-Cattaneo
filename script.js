@@ -8,12 +8,12 @@
     }
     
     /* BASE DE DATOS DE MARCAS Y TARIFAS */
-    const volkswagen = new Lista ("Volkswagen", 3100);
-    const ford = new Lista ("Ford", 2840);
-    const renault = new Lista ("Renault", 3220);
-    const chevrolet = new Lista ("Chevrolet", 2750);
-    const peugeot = new Lista ("Peugeot", 3845);
-    const fiat = new Lista ("Fiat", 2530);
+    const volkswagen = new Lista ("Volkswagen", 33100);
+    const ford = new Lista ("Ford", 21840);
+    const renault = new Lista ("Renault", 32220);
+    const chevrolet = new Lista ("Chevrolet", 24750);
+    const peugeot = new Lista ("Peugeot", 33845);
+    const fiat = new Lista ("Fiat", 22530);
 
     const listaProductos = [volkswagen, ford, renault, chevrolet, peugeot, fiat];
     
