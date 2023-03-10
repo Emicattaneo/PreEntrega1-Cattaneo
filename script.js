@@ -18,14 +18,19 @@ const arrayProductos = [volkswagen, ford, renault, chevrolet, peugeot, fiat];
 
 const contenedorInformacion = document.getElementById("divDOM")
 
-/* ESTRUCTURA DEL HTML */
+/* ESTRUCTURA DEL HTML: BOTONES PARA LAS MARCAS, DOS INPUT TIPO NUMERICOS PARA EL AÑO DEL AUTO Y EDAD DEL USUARIO*/
 const divInformacion = document.createElement("div");
 divInformacion.innerHTML = `<form id="formulario">
                         <h2> Cual es la marca y el año de tu auto? </h2>
-                        <p>Escriba la marca de su auto: Volkswagen, Ford, Chevrolet, Peugeot, Renault, Fiat.</p>
-                        <input type="text" id="entradaMarcaUsuario">
+                        <p>Elija la marca de su auto:</p>
+                        <input type="button" value="Volkswagen" id="btnVolkswagen">
+                        <input type="button" value="Ford" id="btnFord">
+                        <input type="button" value="Chevrolet" id="btnChevrolet">
+                        <input type="button" value="Peugeot" id="btnPeugeot">
+                        <input type="button" value="Renault" id="btnRenault">
+                        <input type="button" value="Fiat" id="btnFiat">
 
-                        <p>Elija el año del vehículo: (Hasta 20 años de antiguedad)</p>
+                        <p>Elija/Escriba el año del vehículo: (Hasta 20 años de antiguedad)</p>
                         <input type="number" min="2003" max="2023" step="1" id="entradaAnioAuto"/>
 
                         <p>Elija el año de su nacimiento: (Debe ser mayor de 17 años y hasta 83 años)</p>
@@ -36,26 +41,43 @@ contenedorInformacion.appendChild(divInformacion);
 
 let informacion = document.getElementById("formulario");
 
+/* EL EVENTO ONCLICK ASIGNA A marcaUsuario LA MARCA QUE EILGIO Y LA GUARDA EN EL NAVEGADOR DE FORMA LOCAL COMO marcaAutoUsuario */
+let botonV = document.getElementById("btnVolkswagen")
+botonV.onclick = () => {sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonV.value)}
+
+let botonF = document.getElementById("btnFord")
+botonF.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonF.value)}
+
+let botonC = document.getElementById("btnChevrolet")
+botonC.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonC.value)}
+
+let botonP = document.getElementById("btnPeugeot")
+botonP.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonP.value)}
+
+let botonR = document.getElementById("btnRenault")
+botonR.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonR.value)}
+
+let botonFi = document.getElementById("btnFiat")
+botonFi.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFi.value)}
+
+
 /* CON LOS DATOS DEL USUARIO Y LA BASE DE DATOS SE CALCULA EL COSTO DEL SEGURO */
 informacion.addEventListener("submit", calcularInformacion);
 function calcularInformacion(e) {
     e.preventDefault();
 
-    /* ASIGNO LA INFORMACION A DIFERENTES VARIABLES */
+    /* ASIGNO LA INFORMACION A DIFERENTES VARIABLES, SE GUARDAN DE FORMA LOCAL Y TAMBIEN SEN IMPRIMEN EN CONSOLA*/
     let edadUsuario = 2023 - entradaEdadUsuario.value;
-    console.log(edadUsuario);
     sessionStorage.setItem('edadUsuario', edadUsuario);
+    console.log(edadUsuario);
 
     let anioAutoUsuario = entradaAnioAuto.value;
-    console.log(anioAutoUsuario);
     sessionStorage.setItem('añoAutoUsuario', anioAutoUsuario);
+    console.log(anioAutoUsuario);
 
-    let marcaUsuario = entradaMarcaUsuario.value;
-    console.log(marcaUsuario);
-    sessionStorage.setItem('marcaAutoUsuario', marcaUsuario);
-
-    /* CON LA EDAD DEL USUARIO Y EL AÑO DEL AUTO SE MODIFICAN LOS COSTOS EN LA BASE DE DATOS */
+    
     const arrayProductosTarifas = arrayProductos.map((Productos) => {
+        /* CON EL AÑO DEL AUTO SE MODIFICAN LOS COSTOSXMES Y LA SUMA ASEGURADA EN LA BASE DE DATOS */
         if (anioAutoUsuario < 2008) {
             return {
                 marca: Productos.marca,
@@ -75,7 +97,7 @@ function calcularInformacion(e) {
                 suma: (Productos.suma / 1.12)
             }
         }
-
+        /* CON LA EDAD DEL USUARIO SE MODIFICAN UN POCO MAS LOS COSTOSXMES EN LA BASE DE DATOS */
         if (edadUsuario > 17 && edadUsuario < 24) {
             return {
                 marca: Productos.marca,
@@ -97,7 +119,7 @@ function calcularInformacion(e) {
     console.log("Base de datos modificados por los datos entregados:");
     console.log(arrayProductosTarifas);
 
-    /* IMPRIMO LOS DATOS EN CONSOLA QUE SOLO SE LE MUESTRA AL USUARIO */
+    /* IMPRIMO LOS DATOS EN CONSOLA QUE SOLO SE LE MUESTRA AL USUARIO BUSCANDO EN EL ARRAY MODIFICADO USANDO LA VARIABLE DE LA MARCA QUE ELIGIO EL USUARIO */
     const buscar = arrayProductosTarifas.find(Productos => Productos.marca === marcaUsuario);
     console.log("Datos para el usuario:");
     console.log(buscar);
@@ -106,7 +128,7 @@ function calcularInformacion(e) {
     var precioUsuario = buscar.precio;
     var sumaUsuario = buscar.suma;
 
-    /* SE CREA OTRO DIV EN HTML Y SE INFORMA DE LOS COSTOS FINALES */
+    /* SE CREA OTRO DIV Y SE INFORMA DE LOS COSTOS FINALES EN EL HTML*/
     let contenedor = document.createElement("div")
     contenedor.innerHTML = `<p> El seguro completo para su auto ${marcaUsuario} cuesta $${precioUsuario.toFixed(2)} por mes y esta asegurado por $${sumaUsuario.toFixed(2)}</p>`;
 
