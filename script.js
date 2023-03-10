@@ -41,31 +41,29 @@ contenedorInformacion.appendChild(divInformacion);
 
 let informacion = document.getElementById("formulario");
 
-/* EL EVENTO ONCLICK ASIGNA A marcaUsuario LA MARCA QUE EILGIO Y LA GUARDA EN EL NAVEGADOR DE FORMA LOCAL COMO marcaAutoUsuario */
+/* EL EVENTO ONCLICK ASIGNA A marcaUsuario LA MARCA QUE ELIGE Y LA GUARDA EN EL NAVEGADOR DE FORMA LOCAL COMO marcaAutoUsuario */
 let botonV = document.getElementById("btnVolkswagen")
-botonV.onclick = () => {sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonV.value)}
+botonV.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonV.value) }
 
 let botonF = document.getElementById("btnFord")
-botonF.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonF.value)}
+botonF.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonF.value) }
 
 let botonC = document.getElementById("btnChevrolet")
-botonC.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonC.value)}
+botonC.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonC.value) }
 
 let botonP = document.getElementById("btnPeugeot")
-botonP.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonP.value)}
+botonP.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonP.value) }
 
 let botonR = document.getElementById("btnRenault")
-botonR.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonR.value)}
+botonR.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonR.value) }
 
 let botonFi = document.getElementById("btnFiat")
-botonFi.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFi.value)}
-
+botonFi.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFi.value) }
 
 /* CON LOS DATOS DEL USUARIO Y LA BASE DE DATOS SE CALCULA EL COSTO DEL SEGURO */
 informacion.addEventListener("submit", calcularInformacion);
 function calcularInformacion(e) {
     e.preventDefault();
-
     /* ASIGNO LA INFORMACION A DIFERENTES VARIABLES, SE GUARDAN DE FORMA LOCAL Y TAMBIEN SEN IMPRIMEN EN CONSOLA*/
     let edadUsuario = 2023 - entradaEdadUsuario.value;
     sessionStorage.setItem('edadUsuario', edadUsuario);
@@ -74,8 +72,6 @@ function calcularInformacion(e) {
     let anioAutoUsuario = entradaAnioAuto.value;
     sessionStorage.setItem('añoAutoUsuario', anioAutoUsuario);
     console.log(anioAutoUsuario);
-
-    
     const arrayProductosTarifas = arrayProductos.map((Productos) => {
         /* CON EL AÑO DEL AUTO SE MODIFICAN LOS COSTOSXMES Y LA SUMA ASEGURADA EN LA BASE DE DATOS */
         if (anioAutoUsuario < 2008) {
