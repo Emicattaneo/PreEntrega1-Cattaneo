@@ -7,12 +7,12 @@ class Productos {
 }
 
 /* BASE DE DATOS DE MARCAS Y PRECIOS */
-const volkswagen = new Productos("Volkswagen", 33100, 7000000);
-const ford = new Productos("Ford", 21840, 7000000);
-const renault = new Productos("Renault", 32220, 7000000);
-const chevrolet = new Productos("Chevrolet", 24750, 7000000);
-const peugeot = new Productos("Peugeot", 33845, 7000000);
-const fiat = new Productos("Fiat", 22530, 7000000);
+const volkswagen = new Productos("Volkswagen", 33100, 8000000);
+const ford = new Productos("Ford", 21840, 7200000);
+const renault = new Productos("Renault", 32220, 8700000);
+const chevrolet = new Productos("Chevrolet", 24750, 6900000);
+const peugeot = new Productos("Peugeot", 33845, 7500000);
+const fiat = new Productos("Fiat", 22530, 67000000);
 
 const arrayProductos = [volkswagen, ford, renault, chevrolet, peugeot, fiat];
 
