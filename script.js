@@ -33,7 +33,7 @@ divInformacion.innerHTML = `<form id="formulario">
                         <p>Elija/Escriba el año del vehículo: (Hasta 20 años de antiguedad)</p>
                         <input type="number" min="2003" max="2023" step="1" id="entradaAnioAuto"/>
 
-                        <p>Elija el año de su nacimiento: (Debe ser mayor de 17 años y hasta 83 años)</p>
+                        <p>Elija/Escriba el año de su nacimiento: (Debe ser mayor de 17 años y hasta 83 años)</p>
                         <input type="number" min="1940" max="2006" id="entradaEdadUsuario">
                         <input type="submit" value="Enviar">
                         </form>`;
@@ -115,7 +115,8 @@ function calcularInformacion(e) {
     console.log("Base de datos modificados por los datos entregados:");
     console.log(arrayProductosTarifas);
 
-    /* IMPRIMO LOS DATOS EN CONSOLA QUE SOLO SE LE MUESTRA AL USUARIO BUSCANDO EN EL ARRAY MODIFICADO USANDO LA VARIABLE DE LA MARCA QUE ELIGIO EL USUARIO */
+    /* BUSCANDO EN EL ARRAY MODIFICADO USANDO LA VARIABLE DE LA MARCA QUE ELIGIO EL USUARIO IMPRIMO EN CONSOLA LOS COSTOS*/
+    let marcaUsuario = sessionStorage.getItem('marcaAutoUsuario')
     const buscar = arrayProductosTarifas.find(Productos => Productos.marca === marcaUsuario);
     console.log("Datos para el usuario:");
     console.log(buscar);
