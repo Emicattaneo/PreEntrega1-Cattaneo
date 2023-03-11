@@ -42,23 +42,23 @@ contenedorInformacion.appendChild(divInformacion);
 let informacion = document.getElementById("formulario");
 
 /* EL EVENTO ONCLICK ASIGNA A marcaUsuario LA MARCA QUE ELIGE Y LA GUARDA EN EL NAVEGADOR DE FORMA LOCAL COMO marcaAutoUsuario */
-let botonV = document.getElementById("btnVolkswagen")
-botonV.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonV.value) }
+let botonVolkswagen = document.getElementById("btnVolkswagen")
+botonVolkswagen.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonVolkswagen.value) }
 
-let botonF = document.getElementById("btnFord")
-botonF.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonF.value) }
+let botonFord = document.getElementById("btnFord")
+botonFord.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFord.value) }
 
-let botonC = document.getElementById("btnChevrolet")
-botonC.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonC.value) }
+let botonChevrolet = document.getElementById("btnChevrolet")
+botonChevrolet.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonChevrolet.value) }
 
-let botonP = document.getElementById("btnPeugeot")
-botonP.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonP.value) }
+let botonPeugeot = document.getElementById("btnPeugeot")
+botonPeugeot.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonPeugeot.value) }
 
-let botonR = document.getElementById("btnRenault")
-botonR.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonR.value) }
+let botonRenault = document.getElementById("btnRenault")
+botonRenault.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonRenault.value) }
 
-let botonFi = document.getElementById("btnFiat")
-botonFi.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFi.value) }
+let botonFiat = document.getElementById("btnFiat")
+botonFiat.onclick = () => { sessionStorage.setItem('marcaAutoUsuario', marcaUsuario = botonFiat.value) }
 
 /* CON LOS DATOS DEL USUARIO Y LA BASE DE DATOS SE CALCULA EL COSTO DEL SEGURO */
 informacion.addEventListener("submit", calcularInformacion);
