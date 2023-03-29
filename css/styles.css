@@ -1,0 +1,9 @@
+.formularioCss{
+    margin: auto;
+}
+
+.cajaBtn{
+    display: grid;
+    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+    align-items: center;
+}

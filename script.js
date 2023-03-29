@@ -20,15 +20,17 @@ const contenedorInformacion = document.getElementById("divDOM")
 
 /* ESTRUCTURA DEL HTML: BOTONES PARA LAS MARCAS, DOS INPUT TIPO NUMERICOS PARA EL AÑO DEL AUTO Y EDAD DEL USUARIO*/
 const divInformacion = document.createElement("div");
-divInformacion.innerHTML = `<form id="formulario">
+divInformacion.innerHTML = `<form id="formulario" class="formularioCss">
                         <h2> Cual es la marca y el año de tu auto? </h2>
                         <p>Elija la marca de su auto:</p>
-                        <input type="button" value="Volkswagen" id="btnVolkswagen">
-                        <input type="button" value="Ford" id="btnFord">
-                        <input type="button" value="Chevrolet" id="btnChevrolet">
-                        <input type="button" value="Peugeot" id="btnPeugeot">
-                        <input type="button" value="Renault" id="btnRenault">
-                        <input type="button" value="Fiat" id="btnFiat">
+                        <div class="cajaBtn">
+                        <input type="button" value="Volkswagen" id="btnVolkswagen" class="btnMarca">
+                        <input type="button" value="Ford" id="btnFord" class="btnMarca">
+                        <input type="button" value="Chevrolet" id="btnChevrolet" class="btnMarca">
+                        <input type="button" value="Peugeot" id="btnPeugeot" class="btnMarca">
+                        <input type="button" value="Renault" id="btnRenault" class="btnMarca">
+                        <input type="button" value="Fiat" id="btnFiat" class="btnMarca">
+                        </div>
 
                         <p>Elija/Escriba el año del vehículo: (Hasta 20 años de antiguedad)</p>
                         <input type="number" min="2003" max="2023" step="1" id="entradaAnioAuto"/>
@@ -127,7 +129,11 @@ function calcularInformacion(e) {
 
     /* SE CREA OTRO DIV Y SE INFORMA DE LOS COSTOS FINALES EN EL HTML*/
     let contenedor = document.createElement("div")
-    contenedor.innerHTML = `<p> El seguro completo para su auto ${marcaUsuario} cuesta $${precioUsuario.toFixed(2)} por mes y esta asegurado por $${sumaUsuario.toFixed(2)}</p>`;
-
+    contenedor.innerHTML = `<p> </p>`;
+    swal(`El seguro completo para su auto ${marcaUsuario} cuesta $${precioUsuario.toFixed(2)} por mes y esta asegurado por $${sumaUsuario.toFixed(2)}`)
     document.body.appendChild(contenedor);
 }
+
+const contenedor = document.createElement("div")
+    contenedor.innerHTML = `<p> Si quiere contratar el servicion llene los siguientes datos:
+                            <input type="text">`
