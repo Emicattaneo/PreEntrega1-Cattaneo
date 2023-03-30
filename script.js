@@ -129,11 +129,12 @@ function calcularInformacion(e) {
 
     /* SE CREA OTRO DIV Y SE INFORMA DE LOS COSTOS FINALES EN EL HTML*/
     let contenedor = document.createElement("div")
-    contenedor.innerHTML = `<p> </p>`;
+    contenedor.innerHTML = 
+    `<div class="formularioCss">
+    <p>El costo total es de $${precioUsuario.toFixed(2)}</p>
+    <div>Confirmar compra:</div>
+    <input type="submit" value="Link de pago">
+    </div>`
     swal(`El seguro completo para su auto ${marcaUsuario} cuesta $${precioUsuario.toFixed(2)} por mes y esta asegurado por $${sumaUsuario.toFixed(2)}`)
     document.body.appendChild(contenedor);
 }
-
-const contenedor = document.createElement("div")
-    contenedor.innerHTML = `<p> Si quiere contratar el servicion llene los siguientes datos:
-                            <input type="text">`
